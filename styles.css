@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* BASE */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header"
+    "main aside"
+    "footer footer";
+  gap: 22px; 
+  min-height: 100vh;
+  background: url("images/Pitlane\ de\ dia.png") center/cover no-repeat;
+}
+
+/* HEADER */
+header {
+  grid-area: header;
+  background: linear-gradient(90deg, #ff0000, #111);
+  color: white;
+  padding: 42px; 
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.05rem;
+  font-weight: 700;
+  letter-spacing: 2.3px;
+  text-transform: uppercase;
+}
+
+/* MAIN */
+main {
+  grid-area: main;
+  padding: 18px;
+}
+
+.tarjetas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px; 
+}
+
+/* CARD */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(0,0,0,0.72);
+  padding: 21px;
+  width: 282px;
+  height: 502px;
+  text-align: center;
+  border-radius: 11px;
+  box-shadow: 0 5px 9px rgba(0,0,0,0.32);
+  transition: transform 0.28s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card img {
+  border-radius: 11px;
+  width: 100%;
+  height: auto;
+}
+
+.card h3 {
+  margin-top: 12px;
+  font-size: 1.12rem;
+  color: white;
+}
+
+.card p {
+  font-size: 0.92rem;
+  color: rgb(230,230,230);
+  flex-grow: 1;
+}
+
+.card button {
+  margin-top: auto;
+  background: #242424;
+  color: white;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.28s ease-out;
+}
+
+.card button:hover {
+  background: #ff0000;
+  color: #000;
+}
+
+/* ASIDE */
+aside {
+  grid-area: aside;
+  background: rgba(238,238,238,0.28);
+  padding: 22px;
+  border-radius: 11px;
+  text-align: center;
+}
+
+aside h2 {
+  margin-bottom: 12px;
+  color: black;
+}
+
+
+.video-normal {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 11px;
+  box-shadow: 0 5px 9px rgba(0,0,0,0.32);
+}
+
+.video-normal iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* FOOTER */
+footer {
+  grid-area: footer;
+  background: linear-gradient(90deg, #ff0000, #111);
+  color: white;
+  padding: 22px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-social {
+  display: flex;
+  gap: 22px;
+}
+
+.footer-social a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.28s ease-out;
+}
+
+.footer-social a:hover {
+  color: #00FF7F;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "aside"
+      "footer";
+  }
+  .tarjetas { flex-direction: column; align-items: center; }
+  .card { width: 92%; }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  body { grid-template-columns: 2fr 1fr; }
+}
+
+@media (min-width: 1024px) {
+  body { grid-template-columns: 3fr 1fr; }
+}
